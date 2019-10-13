@@ -1,3 +1,0 @@
-requests            # Request any Server
-pylint
-Flask==0.12.2

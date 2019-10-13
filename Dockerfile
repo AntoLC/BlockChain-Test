@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 RUN ["apt-get", "update"]
 RUN ["apt-get", "install", "-y", "vim"]
 
-COPY requirements-docker.txt ./
+COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
