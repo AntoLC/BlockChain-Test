@@ -1,8 +1,8 @@
 from flask import Flask, jsonify, request
-from blockchain import Blockchain
-import requests
+from Module1.blockchain import Blockchain
+from Module1.flaskrun import flaskrun
 from uuid import uuid4
-from urllib.parse import urlparse
+
 
 app = Flask(__name__)
 blockchain = Blockchain()
@@ -45,5 +45,7 @@ def is_chain_valid():
 
     return jsonify(response), 200 if is_valid else 498
 
+# if __name__ == '__main__':
+#     app.run(debug=True, host='0.0.0.0')
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    flaskrun(app)
