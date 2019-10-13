@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  db-flask:
+    container_name: db-flask
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: anto
+      POSTGRES_PASSWORD: antoto
+      POSTGRES_DB: flask
+
+  adminer-flask:
+    container_name: adminer-flask
+    image: 'adminer'
+    restart: always
+    ports:
+      - 8099:8080
+    depends_on:
+      - db-flask
+
+  flask:
+    container_name: flask
+    restart: always
+    build:
+      context: .
+    #command: python ./Module1/blockchain.py
+    volumes:
+      #- .:/usr/src/app
+      - ./Module1/:/usr/src/app/Module1/
+    ports:
+      - "5099:5000"
+    depends_on:
+      - db-flask
