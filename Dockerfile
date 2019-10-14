@@ -16,4 +16,4 @@ COPY . .
 WORKDIR /usr/src/app/Module1/
 
 ENTRYPOINT [ "python" ]
-CMD [ "main.py" ]
+CMD [ "main_local.py" ]
